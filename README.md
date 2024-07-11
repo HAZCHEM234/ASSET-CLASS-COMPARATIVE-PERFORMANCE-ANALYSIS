@@ -17,15 +17,15 @@ This repository contains code and resources for analyzing financial data and vis
 ## Usage
 
 1. **Data Analysis**:
-   - Open `data_analysis.ipynb` in Jupyter Notebook or Jupyter Lab.
+   - Open `Data_analysis.ipynb` in Jupyter Notebook or Jupyter Lab.
    - Follow the steps to collect and visualize the financial data.
 
 2. **Update Data Collection**:
-   - Open `update_data_collection.ipynb` in Jupyter Notebook or Jupyter Lab.
+   - Open `Update_Data_collection.ipynb` in Jupyter Notebook or Jupyter Lab.
    - Run the notebook to fetch the most recent data and update the datasets.
 
 3. **Web Application**:
-   - Navigate to the `web_app` folder.
+   - Navigate to the `Web` folder.
    - Run `app.py` using a Python environment with Flask and Plotly installed:
      ```bash
      python app.py

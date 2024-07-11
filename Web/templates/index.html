@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Analysis Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center">Financial Analysis Dashboard</h1>
+        
+        <!-- Asset Selection Checkboxes -->
+        <form action="/" method="get">
+            <div class="form-group">
+                <label>Select Assets:</label><br>
+                {% for asset in ['Gold', 'S&P 500', '10Y Treasury', 'Bitcoin'] %}
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="assets" id="{{ asset }}" value="{{ asset }}" {% if asset in selected_assets %}checked{% endif %}>
+                    <label class="form-check-label" for="{{ asset }}">{{ asset }}</label>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Period Selection Radio Buttons -->
+            <div class="form-group mt-3">
+                <label>Select Period:</label><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="period" id="10y" value="10y" {% if period == '10y' %}checked{% endif %}>
+                    <label class="form-check-label" for="10y">10 Years</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="period" id="5y" value="5y" {% if period == '5y' %}checked{% endif %}>
+                    <label class="form-check-label" for="5y">5 Years</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="period" id="1y" value="1y" {% if period == '1y' %}checked{% endif %}>
+                    <label class="form-check-label" for="1y">1 Year</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-2">Update Selection</button>
+        </form>
+
+        <!-- Graphs -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h3 class="card-title">Cumulative Returns</h3>
+            </div>
+            <div class="card-body">
+                {{ cumulative_fig|safe }}
+            </div>
+        </div>
+        <div class="card mt-4">
+            <div class="card-header">
+                <h3 class="card-title">Performance Metrics</h3>
+            </div>
+            <div class="card-body">
+                {{ performance_fig|safe }}
+            </div>
+        </div>
+        <div class="card mt-4">
+            <div class="card-header">
+                <h3 class="card-title">Total Returns</h3>
+            </div>
+            <div class="card-body">
+                {{ total_returns_fig|safe }}
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

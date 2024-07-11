@@ -25,6 +25,9 @@ This repository contains code and resources for analyzing financial data and vis
    - Run the notebook to fetch the most recent data and update the datasets.
 
 3. **Web Application**:
+    ```bash
+     cd Web
+     ```
    - Navigate to the `Web` folder.
    - Run `app.py` using a Python environment with Flask and Plotly installed:
      ```bash
